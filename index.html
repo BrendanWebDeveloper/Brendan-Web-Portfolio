@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brendan — Web Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Brendan, web developer. Browse projects normally, or step into the Video Club." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Inter:wght@400;600;800&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ NORMAL PORTFOLIO ============ -->
+  <div id="site" class="site">
+    <header class="hero">
+      <nav class="nav">
+        <span class="logo">Brendan<span class="dot">.</span>dev</span>
+        <div class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+      <div class="hero-body">
+        <p class="eyebrow">Web developer</p>
+        <h1>Hi, I'm Brendan.<br />I build things for the web — and games, too.</h1>
+        <p class="lede">Here's what I've been working on. You can scroll through like a normal portfolio, or…</p>
+        <button class="enter-btn" id="enterStore" type="button">
+          <span class="enter-icon" aria-hidden="true">📼</span>
+          Enter the Video Club
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="grid" id="projectGrid"></div>
+      </section>
+
+      <section id="about" class="section about">
+        <h2>About</h2>
+        <p>Write a short intro here: what you like building, what you're learning, and what kind of work you're looking for.</p>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <p><a href="mailto:you@example.com">you@example.com</a> · <a href="https://github.com/BrendanWebDeveloper">GitHub</a></p>
+      </section>
+    </main>
+
+    <footer class="footer">© <span id="year"></span> Brendan</footer>
+  </div>
+
+  <!-- ============ VIDEO CLUB / GAME STORE ============ -->
+  <div id="store" class="store" hidden>
+    <header class="store-top">
+      <button class="exit-btn" id="exitStore" type="button">← Back to regular site</button>
+      <div class="aisle-switch" role="radiogroup" aria-label="Aisle">
+        <button type="button" role="radio" data-aisle="vhs" aria-checked="true">📼 Movies</button>
+        <button type="button" role="radio" data-aisle="game" aria-checked="false">🎮 Games</button>
+      </div>
+    </header>
+
+    <div class="neon-wrap">
+      <h1 class="neon" id="storeSign">Brendan's Video Club</h1>
+      <p class="store-sub" id="storeSub">Pick a tape off the shelf · Be kind, rewind</p>
+    </div>
+
+    <div class="shelf-unit">
+      <div class="shelf-label"><span>★ New Releases ★</span></div>
+      <div class="shelf" id="shelf"></div>
+    </div>
+
+    <p class="store-foot">Open 24/7 · No late fees · Members only (that's you)</p>
+  </div>
+
+  <!-- ============ CASE / DETAIL OVERLAY ============ -->
+  <div id="overlay" class="overlay" hidden>
+    <div class="overlay-bg" data-close></div>
+    <div class="case-stage" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="case" id="case">
+        <div class="case-body" id="caseBody"></div>
+        <div class="case-cover" id="caseCover">
+          <div class="face front" id="coverFront"></div>
+          <div class="face back" id="coverBack"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="static" class="static" aria-hidden="true"></div>
+
+  <script src="projects.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
