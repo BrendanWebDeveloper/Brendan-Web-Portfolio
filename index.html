@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brendan — Web Developer Portfolio</title>
-  <meta name="description" content="Portfolio of Brendan, web developer. Browse projects normally, or step into the Video Club." />
+  <meta name="description" content="Portfolio of Brendan, web developer. Browse projects normally, or step into the café." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bungee&family=Inter:wght@400;600;800&family=VT323&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;600;800&family=Lora:ital,wght@0,400;0,600;1,400&family=Pacifico&family=Playfair+Display:wght@700;900&family=Press+Start+2P&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- ============ NORMAL PORTFOLIO ============ -->
+  <!-- ================= NORMAL PORTFOLIO ================= -->
   <div id="site" class="site">
     <header class="hero">
       <nav class="nav">
@@ -25,10 +25,10 @@
       <div class="hero-body">
         <p class="eyebrow">Web developer</p>
         <h1>Hi, I'm Brendan.<br />I build things for the web — and games, too.</h1>
-        <p class="lede">Here's what I've been working on. You can scroll through like a normal portfolio, or…</p>
-        <button class="enter-btn" id="enterStore" type="button">
-          <span class="enter-icon" aria-hidden="true">📼</span>
-          Enter the Video Club
+        <p class="lede">Here's what I've been working on. Scroll through like a normal portfolio, or…</p>
+        <button class="enter-btn" id="enterCafe" type="button">
+          <span class="enter-icon" aria-hidden="true">☕</span>
+          Step into the Café
         </button>
       </div>
     </header>
@@ -53,44 +53,203 @@
     <footer class="footer">© <span id="year"></span> Brendan</footer>
   </div>
 
-  <!-- ============ VIDEO CLUB / GAME STORE ============ -->
-  <div id="store" class="store" hidden>
-    <header class="store-top">
-      <button class="exit-btn" id="exitStore" type="button">← Back to regular site</button>
-      <div class="aisle-switch" role="radiogroup" aria-label="Aisle">
-        <button type="button" role="radio" data-aisle="vhs" aria-checked="true">📼 Movies</button>
-        <button type="button" role="radio" data-aisle="game" aria-checked="false">🎮 Games</button>
+  <!-- ================= THE CAFÉ ================= -->
+  <div id="cafe" class="cafe" hidden>
+    <div class="hud">
+      <button class="hud-btn" id="leaveCafe" type="button">← Regular site</button>
+      <button class="hud-btn" id="backBtn" type="button" hidden>← Back to the café</button>
+    </div>
+
+    <!-- Outside -->
+    <section class="view outside" id="vOutside" aria-label="Outside the café">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="facade" id="facade">
+        <div class="sign"><span class="sign-text">Brendan's Café</span><small>coffee · code · games</small></div>
+        <div class="awning" aria-hidden="true"></div>
+        <div class="storefront">
+          <div class="shop-window" aria-hidden="true">
+            <svg viewBox="0 0 200 160" preserveAspectRatio="xMidYMax meet">
+              <rect x="20" y="20" width="44" height="120" fill="#5b3216" opacity=".55" />
+              <rect x="24" y="40" width="36" height="3" fill="#3a1f0c" opacity=".6" /><rect x="24" y="70" width="36" height="3" fill="#3a1f0c" opacity=".6" /><rect x="24" y="100" width="36" height="3" fill="#3a1f0c" opacity=".6" />
+              <ellipse cx="135" cy="112" rx="38" ry="7" fill="#3a1f0c" opacity=".55" />
+              <rect x="132" y="112" width="6" height="40" fill="#3a1f0c" opacity=".55" />
+              <path d="M135 0 V30" stroke="#3a1f0c" stroke-width="2" opacity=".5" />
+              <path d="M120 44 Q135 26 150 44 Z" fill="#3a1f0c" opacity=".55" />
+            </svg>
+            <span class="window-text">est. 2026</span>
+          </div>
+          <div class="door-wrap">
+            <span class="lamp left" aria-hidden="true"></span>
+            <button class="door" id="door" type="button" aria-label="Open the door and walk in">
+              <span class="doorway" aria-hidden="true"></span>
+              <span class="door-leaf" aria-hidden="true">
+                <span class="door-glass"><span class="open-sign">OPEN</span></span>
+                <span class="door-panel"></span>
+                <span class="door-handle"></span>
+              </span>
+            </button>
+            <span class="lamp right" aria-hidden="true"></span>
+          </div>
+          <div class="shop-window" aria-hidden="true">
+            <svg viewBox="0 0 200 160" preserveAspectRatio="xMidYMax meet">
+              <ellipse cx="70" cy="112" rx="38" ry="7" fill="#3a1f0c" opacity=".55" />
+              <rect x="67" y="112" width="6" height="40" fill="#3a1f0c" opacity=".55" />
+              <rect x="56" y="96" width="12" height="14" rx="2" fill="#3a1f0c" opacity=".55" />
+              <path d="M70 0 V30" stroke="#3a1f0c" stroke-width="2" opacity=".5" />
+              <path d="M55 44 Q70 26 85 44 Z" fill="#3a1f0c" opacity=".55" />
+              <rect x="140" y="60" width="40" height="92" fill="#5b3216" opacity=".5" />
+            </svg>
+            <span class="window-text">books &amp; games</span>
+          </div>
+        </div>
+        <div class="sidewalk" aria-hidden="true"><span class="mat">WELCOME</span></div>
       </div>
-    </header>
+      <p class="hint">Click the door to walk in</p>
+    </section>
 
-    <div class="neon-wrap">
-      <h1 class="neon" id="storeSign">Brendan's Video Club</h1>
-      <p class="store-sub" id="storeSub">Pick a tape off the shelf · Be kind, rewind</p>
-    </div>
+    <!-- Inside -->
+    <section class="view room-view" id="vRoom" aria-label="Inside the café">
+      <div class="room" id="room">
+        <div class="r-wall" aria-hidden="true"></div>
+        <div class="r-wainscot" aria-hidden="true"></div>
+        <div class="r-floor" aria-hidden="true"></div>
+        <div class="r-window" aria-hidden="true"><span class="moon"></span></div>
+        <div class="r-lamp l1" aria-hidden="true"></div>
+        <div class="r-lamp l2" aria-hidden="true"></div>
+        <div class="r-board" aria-hidden="true"><b>Menu</b><ul id="boardList"></ul></div>
+        <div class="r-counter" aria-hidden="true">
+          <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMax meet">
+            <rect x="0" y="96" width="200" height="104" fill="#5a3218" />
+            <rect x="0" y="96" width="200" height="10" fill="#8a5630" />
+            <rect x="10" y="118" width="80" height="70" fill="#4a2912" /><rect x="110" y="118" width="80" height="70" fill="#4a2912" />
+            <rect x="30" y="40" width="90" height="56" rx="6" fill="#b9bcc2" />
+            <rect x="30" y="40" width="90" height="12" rx="6" fill="#d9dce0" />
+            <rect x="48" y="62" width="14" height="10" fill="#555" /><rect x="88" y="62" width="14" height="10" fill="#555" />
+            <rect x="48" y="84" width="14" height="10" rx="2" fill="#fff" /><rect x="88" y="84" width="14" height="10" rx="2" fill="#fff" />
+            <circle cx="75" cy="57" r="4" fill="#d7263d" />
+            <path d="M140 96 a22 22 0 0 1 44 0 Z" fill="#fff" opacity=".35" stroke="#fff" stroke-opacity=".6" />
+            <rect x="150" y="84" width="24" height="12" rx="3" fill="#c98b5b" />
+          </svg>
+        </div>
+        <div class="r-plant" aria-hidden="true">
+          <svg viewBox="0 0 60 120" preserveAspectRatio="xMidYMax meet">
+            <path d="M30 70 C10 50 6 30 14 12 C22 30 28 46 30 70Z" fill="#3f7d4a" />
+            <path d="M30 70 C48 48 56 30 50 8 C40 30 34 46 30 70Z" fill="#4f9a5a" />
+            <path d="M30 72 C16 64 4 60 0 48 C14 50 24 58 30 72Z" fill="#2f6b3c" />
+            <path d="M30 72 C44 64 56 60 60 46 C46 50 36 58 30 72Z" fill="#3f8a4a" />
+            <path d="M14 72 H46 L42 118 H18 Z" fill="#b5653a" />
+          </svg>
+        </div>
 
-    <div class="shelf-unit">
-      <div class="shelf-label"><span>★ New Releases ★</span></div>
-      <div class="shelf" id="shelf"></div>
-    </div>
+        <button class="hotspot r-shelf" type="button" data-go="shelf" aria-label="Walk to the bookshelf">
+          <span class="mini-shelf" id="miniShelf" aria-hidden="true"></span>
+          <span class="tag">📚 Bookshelf</span>
+        </button>
 
-    <p class="store-foot">Open 24/7 · No late fees · Members only (that's you)</p>
+        <button class="hotspot r-table" type="button" data-go="table" aria-label="Sit down at the table">
+          <svg viewBox="0 0 340 220" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+            <g fill="none" stroke="#3a1f0c" stroke-width="5" stroke-linecap="round">
+              <path d="M40 140 V60 Q40 40 60 40 Q78 40 78 62 V128" />
+              <path d="M48 140 L40 212 M84 140 L92 212 M58 150 L56 206" />
+              <path d="M300 140 V60 Q300 40 280 40 Q262 40 262 62 V128" />
+              <path d="M292 140 L300 212 M256 140 L248 212 M282 150 L284 206" />
+            </g>
+            <ellipse cx="64" cy="138" rx="34" ry="8" fill="#5a3218" />
+            <ellipse cx="276" cy="138" rx="34" ry="8" fill="#5a3218" />
+            <rect x="163" y="112" width="14" height="86" fill="#3a1f0c" />
+            <ellipse cx="170" cy="202" rx="44" ry="9" fill="#3a1f0c" />
+            <ellipse cx="170" cy="112" rx="100" ry="20" fill="#6b3e1f" />
+            <ellipse cx="170" cy="108" rx="100" ry="20" fill="#a0683a" />
+            <ellipse cx="136" cy="104" rx="16" ry="4" fill="#f4efe6" />
+            <path d="M126 86 H146 V98 Q146 104 136 104 Q126 104 126 98 Z" fill="#fff" />
+            <path d="M146 89 q8 0 8 5 q0 5 -8 5" fill="none" stroke="#fff" stroke-width="3" />
+            <g class="steam" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7">
+              <path d="M132 80 q-4 -6 0 -12 q4 -6 0 -12" /><path d="M140 80 q-4 -6 0 -12 q4 -6 0 -12" />
+            </g>
+            <g transform="rotate(-14 200 100)">
+              <rect x="190" y="84" width="22" height="30" rx="3" fill="#d8d5cc" />
+              <rect x="194" y="88" width="14" height="11" fill="#8bac0f" />
+            </g>
+          </svg>
+          <span class="tag">☕ Sit at the table</span>
+        </button>
+      </div>
+      <p class="hint">Browse the bookshelf, or grab a seat at the table</p>
+    </section>
+
+    <!-- Bookshelf -->
+    <section class="view shelf-view" id="vShelf" aria-label="Bookshelf">
+      <h2 class="view-title">The Project Shelf</h2>
+      <p class="hint inline">Pull a book off the shelf to read it</p>
+      <div class="bookcase" id="bookcase"></div>
+    </section>
+
+    <!-- Table -->
+    <section class="view table-view" id="vTable" aria-label="Café table">
+      <div class="t-window" aria-hidden="true"><span class="moon"></span></div>
+      <div class="t-lamp" aria-hidden="true"></div>
+      <div class="tabletop" aria-hidden="true">
+        <div class="t-cup">
+          <span class="t-steam"><i></i><i></i><i></i></span>
+          <span class="t-mug"></span>
+          <span class="t-saucer"></span>
+        </div>
+        <div class="t-note">psst… pick me up</div>
+      </div>
+
+      <div class="hh-wrap" id="hhWrap">
+        <button class="hh-pickup" id="hhPickup" type="button" aria-label="Pick up the handheld console"></button>
+        <div class="handheld" id="handheld">
+          <div class="hh-top" aria-hidden="true"><span>◂ OFF · ON ▸</span></div>
+          <div class="hh-bezel">
+            <span class="hh-led" aria-hidden="true"></span>
+            <div class="hh-screen" id="hhScreen" aria-live="polite"></div>
+            <p class="hh-bezel-text" aria-hidden="true">PIXEL DISPLAY · PORTFOLIO EDITION</p>
+          </div>
+          <p class="hh-brand" aria-hidden="true">Brendan <b>POCKET</b></p>
+          <div class="hh-controls">
+            <div class="dpad">
+              <button type="button" class="d up" data-btn="up" aria-label="Up"></button>
+              <button type="button" class="d left" data-btn="left" aria-label="Left"></button>
+              <span class="d mid" aria-hidden="true"></span>
+              <button type="button" class="d right" data-btn="right" aria-label="Right"></button>
+              <button type="button" class="d down" data-btn="down" aria-label="Down"></button>
+            </div>
+            <div class="ab">
+              <button type="button" class="round b" data-btn="b" aria-label="B button"><span>B</span></button>
+              <button type="button" class="round a" data-btn="a" aria-label="A button"><span>A</span></button>
+            </div>
+          </div>
+          <div class="ss">
+            <button type="button" data-btn="select"><span class="pill"></span>SELECT</button>
+            <button type="button" data-btn="start"><span class="pill"></span>START</button>
+          </div>
+          <span class="speaker" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="hh-actions" id="hhActions">
+        <button type="button" class="hud-btn" id="putDown">Put it down</button>
+        <p>Arrows / D-pad to move · Enter = A · Backspace = B</p>
+      </div>
+    </section>
+
+    <div class="fade" id="fade" aria-hidden="true"></div>
   </div>
 
-  <!-- ============ CASE / DETAIL OVERLAY ============ -->
+  <!-- ================= BOOK / DETAIL OVERLAY ================= -->
   <div id="overlay" class="overlay" hidden>
     <div class="overlay-bg" data-close></div>
-    <div class="case-stage" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
-      <div class="case" id="case">
-        <div class="case-body" id="caseBody"></div>
-        <div class="case-cover" id="caseCover">
+    <div class="book-stage" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <div class="book" id="book">
+        <div class="book-page" id="bookPage"></div>
+        <div class="book-cover" id="bookCover">
           <div class="face front" id="coverFront"></div>
           <div class="face back" id="coverBack"></div>
         </div>
       </div>
     </div>
   </div>
-
-  <div id="static" class="static" aria-hidden="true"></div>
 
   <script src="projects.js"></script>
   <script src="app.js"></script>

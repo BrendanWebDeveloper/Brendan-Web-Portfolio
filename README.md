@@ -1,14 +1,21 @@
-# Brendan — Web Portfolio (with a Video Club)
+# Brendan — Web Portfolio (with a Café)
 
-A normal portfolio site that has a second mode. Click **Enter the Video Club** and the page
-turns into a retro video store. Each project is a case on the shelf: click it and it comes
-off the shelf, flies to the middle of the screen and opens. Inside you'll find the details,
-a little TV for a trailer, and links to play the project or see its source.
+A normal portfolio site with a second mode. Click **Step into the Café** and you're standing
+outside a little café at night:
 
-A toggle at the top switches between two aisles:
+1. **Outside**: click the door. It swings open and you walk in.
+2. **Inside**: there's a bookshelf and a table with chairs.
+3. **The bookshelf**: each project is a book. Click one and it comes off the shelf, flies to
+   the middle of the screen and opens. The inside cover has a marbled endpaper. The page has
+   the description, a figure for a screenshot or video, the tech list and links.
+4. **The table**: a coffee cup and a handheld console are lying on the table. Pick up the
+   handheld and it boots up with the **Java game**: a title screen, then a menu with
+   *Play game*, *Trailer*, *About* and *Source code*.
+   - Use the D-pad, A/B, Start and Select buttons on screen.
+   - Or use the keyboard: arrows, Enter = A, Backspace = B, Esc = put it down.
 
-- **📼 Movies**: VHS clamshells, with a tape inside
-- **🎮 Games**: game cases, with a disc and instruction booklet inside
+The browser back button works between scenes. You can also link straight to a scene:
+`#cafe`, `#cafe/inside`, `#cafe/shelf` or `#cafe/table`.
 
 ## Run it
 
@@ -18,22 +25,21 @@ There's no build step. Open `index.html` in a browser, or serve the folder:
 python3 -m http.server 8000   # then visit http://localhost:8000
 ```
 
-Linking to `yoursite/#club` opens the site straight into the store.
-
 ## Add or edit a project
 
-Everything is in **`projects.js`**. Each entry feeds both the normal grid and the shelf:
+Everything is in **`projects.js`**. Each entry appears in the normal grid and in the café:
 
 | Field | What it does |
 | --- | --- |
-| `title`, `tagline`, `description` | Text on the cover and in the detail panel |
-| `year`, `genre`, `rating`, `status` | Small labels. Any `status` except `"Live"` shows as a sticker on the shelf |
-| `tech` | List of technologies, shown as chips |
-| `cover.from` / `cover.to` / `cover.accent` | Colors for the generated cover art |
-| `cover.image` | Optional real cover image (e.g. `"covers/java-game.jpg"`). Replaces the generated art |
-| `links.demo` | "▶ Play / Watch" button (opens in a new tab) |
-| `links.video` | Plays on the TV in the case. Use a YouTube **embed** URL or an `.mp4` path |
-| `links.repo` | "Source code" button |
+| `place` | `"shelf"` (a book) or `"handheld"` (the console on the table; only the first one is used) |
+| `title`, `tagline`, `description` | Text on the book cover / handheld title screen and the detail page |
+| `year`, `genre`, `status` | Small labels. Any `status` except `"Live"` shows as a sticky label on the book's spine |
+| `tech` | Technologies. These also appear on the café's chalkboard menu |
+| `cover.from` / `cover.to` / `cover.accent` | Book colors (accent = gold lettering) |
+| `cover.image` | Optional real cover art image |
+| `links.demo` | "Live demo" button / "Play game" on the handheld (opens in a new tab) |
+| `links.video` | YouTube **embed** URL or `.mp4`, shown in the book or as the handheld's trailer |
+| `links.repo` | "Source code" link |
 
 ## Deploy on GitHub Pages
 
@@ -41,7 +47,7 @@ In the repo, go to Settings → Pages → Deploy from branch → `main` / root.
 
 ## Files
 
-- `index.html`: page structure (normal site, store, case overlay)
-- `styles.css`: all styling, including the 3D case and the generated cover art
-- `app.js`: rendering, switching between modes, and the open/close animation
+- `index.html`: page structure (normal site, the café scenes, the book overlay)
+- `styles.css`: all styling. The café is drawn with CSS and small inline SVGs, with no image files
+- `app.js`: scene navigation, bookshelf, book animation, handheld console
 - `projects.js`: your content
